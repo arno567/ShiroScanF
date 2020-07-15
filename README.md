@@ -4,7 +4,7 @@ shiro反序列化批量ip快速检测脚本
 自行安装相关模块
 1. 增加线程池快速扫描 代码中第50行可以修改线程数
 2. 解决https检测问题
-3. 将模块、key值、检测目标url添加到dnslog的头部，dnslog平台接收到存在漏洞的ip地址信息，方便进行筛查和漏洞记录。
+3. payload中自动将模块、key值、检测目标url添加到dnslog的头部，dnslog平台会接收到存在漏洞的ip地址信息，方便进行筛查和漏洞记录。
 # 简单使用
 1. 下载文件解压
 2. 在 https://github.com/sv3nbeast/ShiroScan 中下载ysoserial.jar放在目录下
