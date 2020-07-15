@@ -12,6 +12,6 @@ shiro反序列化批量ip快速检测脚本
 4. url.txt中写入目标地址列表，格式 http://xxxx 或者 https://xxxxx:000
 5. python3运行脚本 观考dnslog服务器即可
 # 演示
-![](https://github.com/arno567/shiroFscan/blob/master/ceshi.jpg)
+![ys](https://github.com/arno567/shiroFscan/blob/master/ceshi.jpg)
 
 
