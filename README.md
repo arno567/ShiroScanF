@@ -10,7 +10,7 @@ shiro反序列化批量ip快速检测脚本
 2. 在 https://github.com/sv3nbeast/ShiroScan 中下载ysoserial.jar放在目录下
 3. 修改第47行的dnslog地址
 4. url.txt中写入目标地址列表，格式 http://xxxx 或者 https://xxxxx:000
-5. python3运行脚本 观考dnslog服务器即可
+5. python3运行脚本 观察dnslog服务器即可
 # 演示
 ![ys](https://github.com/arno567/shiroFscan/blob/master/ceshi.jpg)
 
