@@ -1,4 +1,4 @@
-# shiroFscan
+# shiroscanF
 shiro反序列化批量ip快速检测脚本
 魔改的 https://github.com/sv3nbeast/ShiroScan 之前的老版本
 自行安装相关模块
